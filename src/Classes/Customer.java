@@ -55,8 +55,7 @@ public class Customer extends user {
             while (DBresult.next()) {
                 dataTable.addRow(new Object[]{
                     DBresult.getString("Customer_id"),
-                    DBresult.getString("Customer_name"),
-                    DBresult.getString("Customer_type_fk")
+                    DBresult.getString("Customer_name"),  
                 });
             }
         } catch (SQLException ex) {
@@ -64,7 +63,6 @@ public class Customer extends user {
         }  
     }
 
-    @Override
     public void search(JTable searchTable, user Customer) {
        DefaultTableModel dataTable = drawTable(searchTable);
         try {
@@ -81,7 +79,6 @@ public class Customer extends user {
         }
     }
 
-    @Override
     public void delete(user Customer) {
         try {
             CustomerQuery.deleteCustomer(Customer);
@@ -99,7 +96,7 @@ public class Customer extends user {
         }
     }
 
-    public void send(user u, JTextField c_name, JTextField c_type) {
+    public void send(user u, JTextField c_name,  JTextField id_field) {
         try {
 
             Statement st = c.getConn().createStatement();
@@ -108,32 +105,12 @@ public class Customer extends user {
             ResultSet re = st.executeQuery(sql);
             while (re.next()) {
                 c_name.setText(re.getString("Customer_name"));
-                c_type.setText(re.getString("Customer_type_fk"));
+                id_field.setText(re.getString("Customer_id"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(adminframe.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void findCustomer(user u, JTable customerTable) {
-        DefaultTableModel dt = new DefaultTableModel();
-        customerTable.setModel(dt);
-        dt.addColumn("Id");
-        dt.addColumn("Payments");
-        dt.addColumn("Orders");
-        dt.addColumn("Offers");
-        try {
-            Statement st = c.getConn().createStatement();
-            String sql = "select * from Customer_Profile where cust_id= " + u.getId() + "";
-            ResultSet re = st.executeQuery(sql);
-            while (re.next()) {
-                dt.addRow(new Object[]{re.getString("cust_id"),
-                    re.getString("payments"),
-                    re.getString("orders"), re.getString("offers")});
-            }
-            JOptionPane.showMessageDialog(null, "Done Successfully", "Report", JOptionPane.INFORMATION_MESSAGE);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ID Not Found!!", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
+    
 }

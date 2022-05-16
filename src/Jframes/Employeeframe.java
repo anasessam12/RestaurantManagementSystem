@@ -53,11 +53,10 @@ private void clear_deletecustomer(){
 }
 private void clear_updatacustomer(){
     e_id1.setText(null); 
-    c_type.setText(null);
+    
     c_name.setText(null);
     
 }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -106,17 +105,11 @@ private void clear_updatacustomer(){
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         cust_manage = new javax.swing.JTabbedPane();
         jPanel8 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
         cust_add = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
         cust_name = new javax.swing.JTextField();
         cust_id = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
@@ -138,10 +131,8 @@ private void clear_updatacustomer(){
         jPanel12 = new javax.swing.JPanel();
         e_id1 = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        c_type = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         c_name = new javax.swing.JTextField();
-        jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -599,30 +590,13 @@ private void clear_updatacustomer(){
             }
         });
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI Emoji", 0, 24)); // NOI18N
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Update.png"))); // NOI18N
-        jLabel20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel20MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel20MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel20MouseExited(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel20))
+                .addComponent(jLabel18)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -640,7 +614,7 @@ private void clear_updatacustomer(){
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(95, 95, 95)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel16)
@@ -648,9 +622,7 @@ private void clear_updatacustomer(){
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel18)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel20)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 455));
@@ -665,33 +637,6 @@ private void clear_updatacustomer(){
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel21.setText("Customer ID");
 
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel22.setText("Customer Type");
-
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Markting");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Loyality");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("Raword");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
-            }
-        });
-
         cust_add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/AddBottom.png"))); // NOI18N
         cust_add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -702,19 +647,6 @@ private void clear_updatacustomer(){
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 cust_addMouseExited(evt);
-            }
-        });
-
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/RecordCustomer.png"))); // NOI18N
-        jLabel24.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel24MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel24MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel24MouseExited(evt);
             }
         });
 
@@ -729,35 +661,25 @@ private void clear_updatacustomer(){
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(105, 105, 105)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel22)
-                                .addGap(58, 58, 58)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton1)
-                                    .addComponent(jRadioButton2)))
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel8Layout.createSequentialGroup()
-                                    .addComponent(jLabel21)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cust_id, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel8Layout.createSequentialGroup()
-                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(cust_name, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cust_name, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cust_id, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(cust_add)
-                        .addGap(209, 209, 209)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(136, Short.MAX_VALUE))
+                        .addGap(242, 242, 242)
+                        .addComponent(cust_add)))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(88, 88, 88)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
                     .addComponent(cust_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -765,22 +687,9 @@ private void clear_updatacustomer(){
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
                     .addComponent(cust_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jLabel22))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jRadioButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton3)))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cust_add)
-                    .addComponent(jLabel24))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addGap(54, 54, 54)
+                .addComponent(cust_add)
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         cust_manage.addTab("tab1", jPanel8);
@@ -1035,12 +944,6 @@ private void clear_updatacustomer(){
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel32.setText("Customer ID");
 
-        c_type.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c_typeActionPerformed(evt);
-            }
-        });
-
         jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel33.setText("Customer Name");
 
@@ -1049,9 +952,6 @@ private void clear_updatacustomer(){
                 c_nameActionPerformed(evt);
             }
         });
-
-        jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel34.setText("Customer Type");
 
         jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/UpdateBottom.png"))); // NOI18N
         jLabel35.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1073,7 +973,7 @@ private void clear_updatacustomer(){
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
+                        .addGap(154, 154, 154)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel32)
@@ -1082,37 +982,28 @@ private void clear_updatacustomer(){
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel33)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(c_name, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addComponent(jLabel34)
-                                .addGap(18, 18, 18)
-                                .addComponent(c_type, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(c_name, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(274, 274, 274)
+                        .addGap(279, 279, 279)
                         .addComponent(jLabel35)))
-                .addContainerGap(334, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(84, 84, 84)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel32))
+                    .addComponent(jLabel32)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(e_id1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
                     .addComponent(c_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel34)
-                    .addComponent(c_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68)
+                .addGap(54, 54, 54)
                 .addComponent(jLabel35)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         cust_manage.addTab("tab5", jPanel12);
@@ -1298,16 +1189,6 @@ private void clear_updatacustomer(){
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Search.png"))); // NOI18N
     }//GEN-LAST:event_jLabel18MouseExited
 
-    private void jLabel20MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseEntered
-        // TODO add your handling code here:
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Update[Hover].png"))); // NOI18N
-    }//GEN-LAST:event_jLabel20MouseEntered
-
-    private void jLabel20MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseExited
-        // TODO add your handling code here:
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Update.png"))); // NOI18N
-    }//GEN-LAST:event_jLabel20MouseExited
-
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         // TODO add your handling code here:
         cust_manage.setSelectedIndex(0);
@@ -1328,16 +1209,6 @@ private void clear_updatacustomer(){
         cust_manage.setSelectedIndex(3);
     }//GEN-LAST:event_jLabel18MouseClicked
 
-    private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
-        // TODO add your handling code here:
-        cust_manage.setSelectedIndex(4);
-    }//GEN-LAST:event_jLabel20MouseClicked
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-        role_id=2;
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
     private void cust_addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cust_addMouseEntered
         // TODO add your handling code here:
         cust_add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/AddBottom[Hover].png"))); // NOI18N
@@ -1348,21 +1219,11 @@ private void clear_updatacustomer(){
         cust_add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/AddBottom.png"))); // NOI18N
     }//GEN-LAST:event_cust_addMouseExited
 
-    private void jLabel24MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseEntered
-        // TODO add your handling code here:
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/RecordCustomer[Hover].png"))); // NOI18N
-    }//GEN-LAST:event_jLabel24MouseEntered
-
-    private void jLabel24MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseExited
-        // TODO add your handling code here:
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/RecordCustomer.png"))); // NOI18N
-    }//GEN-LAST:event_jLabel24MouseExited
-
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
         // TODO add your handling code here:
         
         u.setId(id);
-        u.delete(u);
+       
         o.delete(u);
         cust_manage.setSelectedIndex(2);
         o.list(cust_table);
@@ -1388,7 +1249,7 @@ private void clear_updatacustomer(){
         id =Integer.parseInt((String) cust_table.getValueAt(row, 0));
         u.setId(id);
         c_id.setText(""+id);
-        o.send(u, c_name, c_type);
+        o.send(u, c_name,e_id1);
         
     }//GEN-LAST:event_butupdateMouseClicked
 
@@ -1465,10 +1326,6 @@ private void clear_updatacustomer(){
         // TODO add your handling code here:
     }//GEN-LAST:event_e_id1ActionPerformed
 
-    private void c_typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_typeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_c_typeActionPerformed
-
     private void c_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_nameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_c_nameActionPerformed
@@ -1477,11 +1334,9 @@ private void clear_updatacustomer(){
         // TODO add your handling code here:
         
         String name = c_name.getText();
-        int cust_type = Integer.parseInt(c_type.getText());
+        
         u.setId(id);
-        u.setName(name);
-        u.setRole_id(cust_type);
-        u.update(u);
+        u.setName(name);     
         o.update(u);
         cust_manage.setSelectedIndex(2);
         o.list(cust_table);
@@ -1574,41 +1429,19 @@ private void clear_updatacustomer(){
         
     }//GEN-LAST:event_jLabel14MouseClicked
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-        role_id=1;
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
-        role_id=3;
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
-
     private void cust_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cust_addMouseClicked
         // TODO add your handling code here:
         
         id =Integer.parseInt(cust_id.getText());
         String name = cust_name.getText();
         u.setId(id);
-        u.setName(name);
-        u.setRole_id(role_id);
-        u.add(u, 3);
+        u.setName(name); 
         o.add(u);
         cust_manage.setSelectedIndex(2);
         o.list(cust_table);
         clear_addcustomer();
         
     }//GEN-LAST:event_cust_addMouseClicked
-
-    private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
-        // TODO add your handling code here:
-        
-        dispose() ;
-        this.toBack();
-        new customerframe().setVisible(true);
-        new Employeeframe().setVisible(false);
-        
-    }//GEN-LAST:event_jLabel24MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1653,7 +1486,6 @@ private void clear_updatacustomer(){
     private javax.swing.JLabel butupdate;
     private javax.swing.JTextField c_id;
     private javax.swing.JTextField c_name;
-    private javax.swing.JTextField c_type;
     private javax.swing.JLabel cancel_odrer;
     private javax.swing.JLabel cust_add;
     private javax.swing.JTextField cust_id;
@@ -1675,16 +1507,12 @@ private void clear_updatacustomer(){
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1702,9 +1530,6 @@ private void clear_updatacustomer(){
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

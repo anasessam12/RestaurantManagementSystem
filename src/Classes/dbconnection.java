@@ -22,7 +22,7 @@ public class dbconnection {
    public dbconnection() {
        try{
       Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        conn = DriverManager.getConnection("jdbc:sqlserver://localhost\\ABDO-HUSSEIN\\SQLEXPRESS:1433;databaseName=Restaurant_System", "sa", "12345");
+        conn = DriverManager.getConnection("jdbc:sqlserver://localhost\\ABDO-HUSSEIN\\SQLEXPRESS:1433;databaseName=RestaurantManagementSystem", "sa", "12345");
        }
        catch(ClassNotFoundException ex){
            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);

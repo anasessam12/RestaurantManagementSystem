@@ -68,87 +68,13 @@ public class user {
 
     
     
-    public void add(user u, int roleID){
-    try{
-
-        Statement st = c.getConn().createStatement();
-        String sql = "insert into users values (" +u.getId()+",'"+u.getName()+"','"+u.getPassword()+"',"+roleID+")";
-        st.executeUpdate(sql);
-        //JOptionPane.showMessageDialog(null,"Added Successfully","Add",JOptionPane.INFORMATION_MESSAGE);
-    }
-    catch(SQLException ex){
-    JOptionPane.showMessageDialog(null,ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
-    }  
+    public void add(user u){
     }
        
-    public void list (JTable emp_table )
-    {
-        DefaultTableModel dt=new DefaultTableModel();       
-        emp_table.setModel(dt);
-         dt.addColumn("Id");
-         dt.addColumn("Name");
-         dt.addColumn("Passowrd");    
-        try {
-            // TODO add your handling code here:
-            Statement  st = c.getConn().createStatement();
-            String sql = "select * from users";
-            ResultSet re = st.executeQuery(sql);
-            while(re.next())
-            {    
-                dt.addRow(new Object[] { re.getString("userr_id"),
-                re.getString("userr_name"),
-                re.getString("pass")});      
-            }
-        }catch(SQLException ex){
-    JOptionPane.showMessageDialog(null,ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
-    }    }
-    
-    public void search(JTable search_table, user u) {
-        DefaultTableModel dt = new DefaultTableModel();
-        search_table.setModel(dt);
-        dt.addColumn("Id");
-        dt.addColumn("Name");
-        dt.addColumn("Passowrd");
-        try {
-
-            Statement st = c.getConn().createStatement();
-            String sql = "select * from users where userr_id='" + u.getId() + "'";
-            ResultSet re = st.executeQuery(sql);
-            while (re.next()) {
-
-                dt.addRow(new Object[]{re.getString("userr_id"),
-                    re.getString("userr_name"),
-                    re.getString("pass")});
-
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    
-     public void delete(user u) {
-
-        try {
-            Statement st = c.getConn().createStatement();
-            String sql = "delete from users where userr_id = " + u.getId() + "";
-            st.executeUpdate(sql);
-            //JOptionPane.showMessageDialog(null,"Employee has been deleted successfully","success",JOptionPane.INFORMATION_MESSAGE);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-
+    public void list (JTable emp_table ){    
     }
      
-      public void update(user u) {
-        try {
-
-            Statement st = c.getConn().createStatement();
-            String sql = "update users set userr_name='" + u.getName() + "',pass='" + u.getPassword() + "' where userr_id='" + u.getId() + "' ";
-            st.executeUpdate(sql);
-            //JOptionPane.showMessageDialog(null,"Employee has been updated successfully","success",JOptionPane.INFORMATION_MESSAGE);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
+    public void update(user u) {
     }
       
       public void send(user u, JTextField e_name, JPasswordField e_pass) {

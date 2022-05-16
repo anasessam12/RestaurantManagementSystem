@@ -12,7 +12,7 @@ public class CustomerRepository {
      public void addCustomer(user Customer) throws SQLException
     {
         Statement statmaent = dataBaseConnection.getConn().createStatement();
-        String sql = "insert into Customer values (" + Customer.getId() + ",'" + Customer.getName() + "'," + Customer.getRole_id() + ")";
+        String sql = "insert into Customer values (" + Customer.getId() + ",'" + Customer.getName() + "' )";
         statmaent.executeUpdate(sql);
         JOptionPane.showMessageDialog(null, "Added Successfully", "Add", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -45,7 +45,6 @@ public class CustomerRepository {
         Statement statmaent = dataBaseConnection.getConn().createStatement();
         String sql = "update Customer set "+
                 "Customer_name='" + Customer.getName() + 
-                "',Customer_type_fk='" + Customer.getRole_id() +
                 "' where Customer_id='" + Customer.getId() + "' ";
         statmaent.executeUpdate(sql);
     }

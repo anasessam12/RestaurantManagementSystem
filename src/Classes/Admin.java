@@ -24,24 +24,9 @@ public class Admin extends user {
     public Admin() {
     }
 
-    public void add(user u) {
-
-        try {
-
-            Statement st = c.getConn().createStatement();
-            String sql = "insert into Adminn values (" + u.getId() + ",'" + u.getName() + "','" + u.getPassword() + "')";
-            st.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null, "Added Successfully", "Add", JOptionPane.INFORMATION_MESSAGE);
-
-        } catch (SQLException ex) {
-
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-
-        }
-    }
+    
 
     public void login(Admin a) {
-
         try {
             int count = 0;
             Statement st = c.getConn().createStatement();
@@ -54,7 +39,6 @@ public class Admin extends user {
                 JOptionPane.showMessageDialog(null, "login successfully", "success", JOptionPane.INFORMATION_MESSAGE);
                 new Employeeframe().setVisible(false);
                 new adminframe().setVisible(true);
-//                new Login().dispose();
 
             } else {
                 JOptionPane.showMessageDialog(null, "Invalid Username or Password! ", "Error", JOptionPane.ERROR_MESSAGE);
@@ -63,9 +47,7 @@ public class Admin extends user {
         } catch (SQLException ex) {
 
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-
         }
-
     }
 
     public void report(int userRole, JTable report_table, user u, String descreption) {
@@ -87,7 +69,6 @@ public class Admin extends user {
                         re.getString("emp_name"),
                         re.getString("emp_pass"), (descreption)});
                     count = 1;
-
                 }
                 if (count == 1) {
                     JOptionPane.showMessageDialog(null, "Done Successfully", "Report", JOptionPane.INFORMATION_MESSAGE);
@@ -125,24 +106,18 @@ public class Admin extends user {
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
-
         }
     }
 
     public void setOffer(Offer o, Admin a) {
 
         try {
-
             Statement st = c.getConn().createStatement();
             String sql = "insert into offers values (" + o.getOfferId() + ",'" + o.getOfferDetails() + "'," + a.getId() + ")";
             st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "Added Successfully", "Add", JOptionPane.INFORMATION_MESSAGE);
-
         } catch (SQLException ex) {
-
             JOptionPane.showMessageDialog(null, "This ID is already exist!", "Error", JOptionPane.ERROR_MESSAGE);
-
         }
-
     }
 }

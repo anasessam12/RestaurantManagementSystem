@@ -73,7 +73,7 @@ public class Employee extends user {
 
     }
 
-    @Override
+    
     public void delete(user u) {
 
         try {
@@ -88,7 +88,7 @@ public class Employee extends user {
 
     }
 
-    public void send(user u, JTextField e_name, JPasswordField e_pass) {
+    public void send(user u, JTextField e_name, JPasswordField e_pass,JTextField Id_feild) {
         try {
 
             Statement st = c.getConn().createStatement();
@@ -98,6 +98,7 @@ public class Employee extends user {
             while (re.next()) {
                 e_name.setText(re.getString("emp_name"));
                 e_pass.setText(re.getString("emp_pass"));
+                Id_feild.setText(re.getString("emp_id"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(adminframe.class.getName()).log(Level.SEVERE, null, ex);
@@ -117,7 +118,7 @@ public class Employee extends user {
         }
     }
 
-    @Override
+    
     public void search(JTable search_table, user u) {
         DefaultTableModel dt = new DefaultTableModel();
         search_table.setModel(dt);

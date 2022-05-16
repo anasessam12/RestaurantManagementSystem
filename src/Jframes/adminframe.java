@@ -124,7 +124,6 @@ private void clear_report(){
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
         emp_mange = new javax.swing.JTabbedPane();
         add_emp = new javax.swing.JPanel();
@@ -393,21 +392,6 @@ private void clear_report(){
             }
         });
 
-        jLabel29.setFont(new java.awt.Font("Segoe UI Emoji", 0, 24)); // NOI18N
-        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Update.png"))); // NOI18N
-        jLabel29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel29.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel29MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel29MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel29MouseExited(evt);
-            }
-        });
-
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Backbtn.png"))); // NOI18N
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -441,9 +425,7 @@ private void clear_report(){
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel29)))
+                        .addComponent(jLabel28))
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(back)))
@@ -460,9 +442,7 @@ private void clear_report(){
                 .addComponent(jLabel27)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel28)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel29)
-                .addGap(37, 37, 37)
+                .addGap(94, 94, 94)
                 .addComponent(back)
                 .addContainerGap(46, Short.MAX_VALUE))
         );
@@ -2101,21 +2081,6 @@ private void clear_report(){
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Search.png"))); // NOI18N
     }//GEN-LAST:event_jLabel28MouseExited
 
-    private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
-        // TODO add your handling code here:
-        emp_mange.setSelectedIndex(4);
-    }//GEN-LAST:event_jLabel29MouseClicked
-
-    private void jLabel29MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseEntered
-        // TODO add your handling code here:
-        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Update[Hover].png"))); // NOI18N
-    }//GEN-LAST:event_jLabel29MouseEntered
-
-    private void jLabel29MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseExited
-        // TODO add your handling code here:
-        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Update.png"))); // NOI18N
-    }//GEN-LAST:event_jLabel29MouseExited
-
     private void emp_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emp_addMouseClicked
         // TODO add your handling code here:
         
@@ -2125,7 +2090,7 @@ private void clear_report(){
         u.setId(id);
         u.setName(name);
         u.setPassword(pass);
-        u.add(u, 2);
+        
         e.add(u);
         emp_mange.setSelectedIndex(2);
         e.list(emp_table);
@@ -2147,7 +2112,7 @@ private void clear_report(){
         // TODO add your handling code here:
         
          u.setId(id);
-        u.delete(u);
+        
         e.delete(u);
         emp_mange.setSelectedIndex(2);        
         e.list(emp_table);
@@ -2173,7 +2138,7 @@ private void clear_report(){
         id = Integer.parseInt((String) emp_table.getValueAt(row, 0));
         u.setId(id);
         e_id.setText("" + id);
-        e.send(u, e_name, e_pass);
+        e.send(u, e_name, e_pass,e_id);
         
     }//GEN-LAST:event_updateButtonMouseClicked
 
@@ -2468,7 +2433,6 @@ private void clear_report(){
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
