@@ -71,7 +71,6 @@ public class Customer extends user {
                 dataTable.addRow(new Object[]{
                     DBresult.getString("Customer_id"),
                     DBresult.getString("Customer_name"),
-                    DBresult.getString("Customer_type_fk")
                 });
             }
         } catch (SQLException ex) {
