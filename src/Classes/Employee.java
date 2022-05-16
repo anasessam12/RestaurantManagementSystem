@@ -32,7 +32,7 @@ public class Employee extends user {
 
     public void add(user u) {
         try {
-
+            
             Statement st = c.getConn().createStatement();
             String sql = "insert into Employee values (" + u.getId() + ",'" + u.getName() + "','" + u.getPassword() + "')";
             st.executeUpdate(sql);

@@ -7,9 +7,6 @@ package Jframes;
 
 import Classes.Order;
 import java.awt.Frame;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -41,10 +38,12 @@ public class showorder extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(240, 240, 240));
         setPreferredSize(new java.awt.Dimension(810, 450));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(240, 240, 240));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 480));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Back.png"))); // NOI18N
@@ -164,11 +163,7 @@ public class showorder extends javax.swing.JFrame {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
         Order o = new Order();
-        try {
-            o.showOrder(order_table);
-        } catch (SQLException ex) {
-            Logger.getLogger(showorder.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        o.showorder(order_table);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked

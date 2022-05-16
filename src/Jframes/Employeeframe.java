@@ -9,15 +9,11 @@ import java.awt.Frame;
 import Classes.Employee;
 import Classes.Meals;
 import Classes.Order;
-import Classes.customer;
-import Classes.Billing;
+import Classes.Customer;
 import Classes.dbconnection;
 import Classes.user;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author LEGION
@@ -34,7 +30,7 @@ public class Employeeframe extends javax.swing.JFrame {
     int id , role_id , row;
     user u = new user ();
     Employee e = new Employee(); 
-    customer o = new customer();
+    Customer o = new Customer();
     dbconnection c =new dbconnection();
     
     private void clear_order(){
@@ -1078,19 +1074,19 @@ private void clear_updatacustomer(){
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel32)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(41, 41, 41)
                                 .addComponent(e_id1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel33)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(c_type, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(c_name, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel34)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(c_name, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)
+                                .addComponent(c_type, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGap(274, 274, 274)
                         .addComponent(jLabel35)))
@@ -1109,11 +1105,11 @@ private void clear_updatacustomer(){
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
-                    .addComponent(c_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(c_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel34)
-                    .addComponent(c_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(c_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68)
                 .addComponent(jLabel35)
                 .addContainerGap(145, Short.MAX_VALUE))
@@ -1547,21 +1543,14 @@ private void clear_updatacustomer(){
         Order o = new Order();
         Employee e= new Employee();
         Meals m = new Meals ();
-        customer c= new customer ();
-        Billing billing = new Billing();
-        
+        Customer c= new Customer ();
         o.setQuantity(quan);
         e.setId(emp_id);
         m.setMealId(m_id);
         c.setId(cust_id);
-        float total_p = 0;
-        try {
-            total_p = billing.totalPrice(m, o , billing);
-        } catch (SQLException ex) {
-            Logger.getLogger(Employeeframe.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        float total_p = o.totalPrice(m, o);
         price.setText(""+total_p);
-        o.setOrder(o, e, m, c , billing);
+        o.setOrder(o, e, m, c);
         
     }//GEN-LAST:event_set_orderMouseClicked
 
@@ -1570,8 +1559,8 @@ private void clear_updatacustomer(){
         
         Order o1 = new Order();
         int order_id =Integer.parseInt(o_id.getText());
-        o1.setOrderID(order_id);
-        o1.cancelOrder(o1);
+        o1.setId(order_id);
+        o1.cancel_odrer(o1);
         
     }//GEN-LAST:event_cancel_odrerMouseClicked
 
@@ -1614,7 +1603,7 @@ private void clear_updatacustomer(){
     private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
         // TODO add your handling code here:
         
-         dispose() ;
+        dispose() ;
         this.toBack();
         new customerframe().setVisible(true);
         new Employeeframe().setVisible(false);

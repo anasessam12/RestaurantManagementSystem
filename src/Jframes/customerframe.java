@@ -5,7 +5,7 @@
  */
 package Jframes;
 
-import Classes.customer;
+import Classes.Customer;
 import Classes.user;
 import java.awt.Frame;
 
@@ -183,7 +183,7 @@ public class customerframe extends javax.swing.JFrame {
         if(id.getText() != "")
         {
             user u1 = new user();
-            customer cu = new customer();
+            Customer cu = new Customer();
             int u_id = Integer.parseInt(id.getText());
             u1.setId(u_id);
             cu.findCustomer(u1,customerTable);

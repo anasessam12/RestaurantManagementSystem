@@ -32,12 +32,15 @@ public class Meals {
     public Meals() {
 
     }
-
+   
+    
+    
     public Meals(int mealId, String mealName, double price, int quantity) {
         this.mealId = mealId;
         this.mealName = mealName;
         this.price = price;
         this.quantity = quantity;
+        
     }
 
     public void setMealId(int mealId) {
@@ -133,7 +136,6 @@ public class Meals {
                     re.getString("meal_name"),
                     re.getString("meal_price"),
                     re.getString("meal_quantity")});
-
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
