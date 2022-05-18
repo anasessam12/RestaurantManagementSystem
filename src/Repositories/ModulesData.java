@@ -7,6 +7,7 @@ package Repositories;
 
 import Classes.dbconnection;
 import java.sql.Connection;
+
 public class ModulesData {
 
     public String name;
@@ -15,7 +16,7 @@ public class ModulesData {
     public int userRole;
 
     dbconnection dataBaseConnection = new dbconnection();
-    Connection connection = dataBaseConnection.getConn();
+    Connection connection = dataBaseConnection.getDatabase_connection();
 
     public void setName(String name) {
         this.name = name;

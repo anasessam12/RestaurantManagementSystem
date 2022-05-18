@@ -1,33 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Classes;
 
-import Repositories.BillingRepository;
-import Repositories.CustomerRepository;
-import Repositories.MealsRepository;
-import Repositories.ModulesData;
-import Repositories.OrderRepository;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
+import Interfaces.BillingInterface;
+import Repositories.*;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+public class Billing implements BillingInterface {
 
-public class Billing {
-
-    public float totalPrice(MealsRepository meal, OrderRepository order, BillingRepository billing) throws SQLException {
+    @Override
+    public float totalPrice(MealsRepository meal, OrderRepository order, BillingRepository billing) {
 
         ResultSet result = new BillingRepository().totalPrice(meal, order, billing);
 
-        while (result.next()) {
-            billing.mealPrice = result.getFloat("meal_price");
+        try {
+            while (result.next()) {
+                billing.mealPrice = result.getFloat("meal_price");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Billing.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         billing.totalPrice = billing.mealPrice * order.getQuantity();
-
+        
+        
+        
         return billing.totalPrice;
 
     }

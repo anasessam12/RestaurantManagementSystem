@@ -7,24 +7,15 @@ import java.util.logging.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-
-public class Customer {
-
-   
+public class Customer {   
     CustomerRepository CustomerModel = new CustomerRepository();
-    
     public Customer() {}
 
-    public DefaultTableModel drawTable(JTable table){
-         DefaultTableModel tableModle = new DefaultTableModel();
-            table.setModel(tableModle);
-            tableModle.addColumn("Id");
-            tableModle.addColumn("Name");
-            
-            return tableModle;
-    }
+    drowTables drow_table = new drowTables();
     
-    public void add(CustomerRepository Customer) {
+    
+    
+    public void AddCustomer(CustomerRepository Customer) {
         try {
             CustomerModel.addCustomer(Customer);
         } catch (SQLException ex) {
@@ -32,12 +23,12 @@ public class Customer {
         }
     }
 
-    public void list(JTable employeeTable) {
-        DefaultTableModel dataTable = drawTable(employeeTable);
+    public void ListCustomers(JTable employeeTable) {
+            DefaultTableModel tableModle = drow_table.drawEmployeeTable(employeeTable);
         try {
             ResultSet DBresult = CustomerModel.listCustomers();
             while (DBresult.next()) {
-                dataTable.addRow(new Object[]{
+                tableModle.addRow(new Object[]{
                     DBresult.getString("Customer_id"),
                     DBresult.getString("Customer_name"),  
                 });
@@ -47,12 +38,12 @@ public class Customer {
         }  
     }
 
-    public void search(JTable searchTable, CustomerRepository Customer) {
-       DefaultTableModel dataTable = drawTable(searchTable);
+    public void SearchForCustomer(JTable searchTable, CustomerRepository Customer) {
+            DefaultTableModel tableModle = drow_table.drawEmployeeTable(searchTable);
         try {
-            ResultSet DBresult = CustomerModel.SearchCustomers(Customer);
+            ResultSet DBresult = CustomerModel.SearchForCustomers(Customer);
             while (DBresult.next()) {
-                dataTable.addRow(new Object[]{
+                tableModle.addRow(new Object[]{
                     DBresult.getString("Customer_id"),
                     DBresult.getString("Customer_name"),
                 });
@@ -62,7 +53,7 @@ public class Customer {
         }
     }
 
-    public void delete(CustomerRepository Customer) {
+    public void DeleteACustomer(CustomerRepository Customer) {
         try {
             CustomerModel.deleteCustomer(Customer);
         } catch (SQLException ex) {
@@ -70,7 +61,7 @@ public class Customer {
         }
     }
 
-    public void update(CustomerRepository Customer) {
+    public void UpdateCustomer(CustomerRepository Customer) {
         try {
             CustomerModel.updateCustomer(Customer);
         } catch (SQLException ex) {
@@ -78,7 +69,7 @@ public class Customer {
         }
     }
 
-    public void send(CustomerRepository Customer, JTextField c_name,  JTextField id_field) {
+    public void SendCustomer(CustomerRepository Customer, JTextField c_name,  JTextField id_field) {
         try {
             ResultSet DBresult = CustomerModel.sendCustomer(Customer);
             while (DBresult.next()) {

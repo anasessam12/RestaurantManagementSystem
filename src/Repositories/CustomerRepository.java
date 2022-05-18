@@ -3,10 +3,7 @@ package Repositories;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
-
-public class CustomerRepository extends ModulesData{
-    
-      
+public class CustomerRepository extends ModulesData{      
      public void addCustomer(CustomerRepository customer) throws SQLException
     {
         Statement statement = connection.createStatement();
@@ -19,16 +16,16 @@ public class CustomerRepository extends ModulesData{
     {
         Statement statement = connection.createStatement();
         String sql = "select * from Customer";
-        ResultSet result = statement.executeQuery(sql);
-        return result;
+        ResultSet resultofquery = statement.executeQuery(sql);
+        return resultofquery;
     }
     
-    public ResultSet SearchCustomers(CustomerRepository customer) throws SQLException
+    public ResultSet SearchForCustomers(CustomerRepository customer) throws SQLException
     {
        Statement statement = connection.createStatement();
        String sql = "select * from Customer  where Customer_id='" + customer.getId() + "'";
-       ResultSet result = statement.executeQuery(sql);
-       return result;
+       ResultSet resultofquery = statement.executeQuery(sql);
+       return resultofquery;
     }
     
     public void deleteCustomer(CustomerRepository customer) throws SQLException
@@ -52,7 +49,7 @@ public class CustomerRepository extends ModulesData{
     {
        Statement statement = connection.createStatement();
        String sql = "select * from Customer  where Customer_id='" + customer.getId() + "'";
-       ResultSet result = statement.executeQuery(sql);
-       return result;
+       ResultSet resultofquery = statement.executeQuery(sql);
+       return resultofquery;
     }
 }

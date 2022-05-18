@@ -1,9 +1,7 @@
 package Repositories;
 
-import Classes.dbconnection;
 import java.sql.*;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 
 public class EmployeeRepository extends ModulesData {
 
@@ -30,7 +28,7 @@ public class EmployeeRepository extends ModulesData {
 
     public void deleteEmployee(EmployeeRepository employee) throws SQLException {
         Statement statement = connection.createStatement();
-        String sql = "delete from Employee where emp_id='" + employee.getId() + "'";
+        String sql = "delete from Employee where emp_id= '" + employee.getId() + "'";
         statement.executeUpdate(sql);
         JOptionPane.showMessageDialog(null, "Employee has been deleted successfully", "success", JOptionPane.INFORMATION_MESSAGE);
     }

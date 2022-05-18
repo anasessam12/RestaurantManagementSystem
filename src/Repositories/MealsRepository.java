@@ -1,29 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Repositories;
 
 import Classes.dbconnection;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
-import Classes.Admin;
-import Classes.Meals;
+import java.sql.*;
+import javax.swing.*;
+import java.util.logging.*;
 import Jframes.adminframe;
-import java.sql.ResultSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Egy
- */
 public class MealsRepository {
 
     public int mealId;
@@ -31,7 +14,7 @@ public class MealsRepository {
     public double price;
     public int quantity;
     dbconnection dataBaseConnection = new dbconnection();
-    Connection connection = dataBaseConnection.getConn();
+    Connection connection = dataBaseConnection.getDatabase_connection();
 
     public void setMealId(int mealId) {
         this.mealId = mealId;
@@ -67,30 +50,22 @@ public class MealsRepository {
 
     public void add(MealsRepository meal, AdminRepository admin) {
         try {
-
             Statement statement = connection.createStatement();
             String sqlQuery = "insert into meals values (" + meal.getMealId() + ",'" + meal.getMealName() + "'," + meal.getPrice() + "," + meal.getQuantity() + "," + admin.getId() + ")";
             statement.executeUpdate(sqlQuery);
             JOptionPane.showMessageDialog(null, "Added Successfully", "Add", JOptionPane.INFORMATION_MESSAGE);
-
         } catch (SQLException exception) {
 
             JOptionPane.showMessageDialog(null, exception.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-
         }
-
     }
 
     public ResultSet list(JTable meal_table2) {
-
         ResultSet result = null;
-
         try {
-            // TODO add your handling code here:
             Statement statement = connection.createStatement();
             String sqlQuery = "select * from meals";
             result = statement.executeQuery(sqlQuery);
-
         } catch (SQLException exception) {
             JOptionPane.showMessageDialog(null, exception.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -98,11 +73,8 @@ public class MealsRepository {
     }
 
     public ResultSet search(JTable search_table1, MealsRepository meals) {
-
         ResultSet result = null;
-
         try {
-
             Statement statement = connection.createStatement();
             String sqlQuery = "select * from meals where meal_id='" + meals.getMealId() + "'";
             result = statement.executeQuery(sqlQuery);
@@ -114,7 +86,6 @@ public class MealsRepository {
     }
 
     public void delete(MealsRepository meal) {
-
         try {
             Statement statement = connection.createStatement();
             String sqlQuery = "delete from meals where meal_id = " + meal.getMealId() + "";
@@ -123,12 +94,10 @@ public class MealsRepository {
         } catch (SQLException exception) {
             JOptionPane.showMessageDialog(null, exception.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-
     }
 
     public void update(MealsRepository meal) {
         try {
-
             Statement statement = connection.createStatement();
             String sqlQuery = "update meals set meal_name='" + meal.getMealName() + "',meal_price='" + meal.getPrice() + "',meal_quantity='" + meal.getQuantity() + "' where meal_id='" + meal.getMealId() + "' ";
             statement.executeUpdate(sqlQuery);
@@ -139,21 +108,15 @@ public class MealsRepository {
     }
 
     public ResultSet send(MealsRepository meal) {
-
         ResultSet result = null;
-
         try {
-
             Statement statement = connection.createStatement();
             String sqlQuery = "select * from meals where meal_id='" + meal.getMealId() + "'";
-
             result = statement.executeQuery(sqlQuery);
-
         } catch (SQLException exception) {
             Logger.getLogger(adminframe.class
                     .getName()).log(Level.SEVERE, null, exception);
         }
         return result;
     }
-
 }

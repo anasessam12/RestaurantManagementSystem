@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Repositories;
 
-/**
- *
- * @author Egy
- */
+import Classes.dbconnection;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class OfferRepository {
 
     private int offerId;
@@ -32,5 +29,14 @@ public class OfferRepository {
     public String getOfferDetails() {
         return offerDetails;
     }
-
+    dbconnection dataBaseConnection = new dbconnection();
+    Connection connection = dataBaseConnection.getDatabase_connection();
+    
+    public void SettingOffer(OfferRepository offer) throws SQLException
+    {
+        Statement statement = connection.createStatement();
+        String sql = "insert into offers values (" + offer.getOfferId() + ",'" + offer.getOfferDetails() + ")";
+        statement.executeUpdate(sql);
+        
+    }
 }
