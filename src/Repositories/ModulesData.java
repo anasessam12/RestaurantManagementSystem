@@ -15,7 +15,7 @@ public class ModulesData {
     public String Password;
     public int userRole;
 
-    dbconnection dataBaseConnection = new dbconnection();
+    dbconnection dataBaseConnection = dbconnection.getInstance();
     Connection connection = dataBaseConnection.getDatabase_connection();
 
     public void setName(String name) {

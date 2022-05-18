@@ -29,7 +29,7 @@ public class OfferRepository {
     public String getOfferDetails() {
         return offerDetails;
     }
-    dbconnection dataBaseConnection = new dbconnection();
+    dbconnection dataBaseConnection = dbconnection.getInstance();
     Connection connection = dataBaseConnection.getDatabase_connection();
     
     public void SettingOffer(OfferRepository offer) throws SQLException

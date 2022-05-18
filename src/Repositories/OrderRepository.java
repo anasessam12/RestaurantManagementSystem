@@ -13,7 +13,7 @@ public class OrderRepository {
     private int time;
     private int quantity;
 
-    dbconnection dataBaseConnection = new dbconnection();
+    dbconnection dataBaseConnection = dbconnection.getInstance();
     Connection connection = dataBaseConnection.getDatabase_connection();
 
     public int getOrderID() {

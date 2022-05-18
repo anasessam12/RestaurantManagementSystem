@@ -13,7 +13,7 @@ public class MealsRepository {
     public String mealName;
     public double price;
     public int quantity;
-    dbconnection dataBaseConnection = new dbconnection();
+    dbconnection dataBaseConnection = dbconnection.getInstance();
     Connection connection = dataBaseConnection.getDatabase_connection();
 
     public void setMealId(int mealId) {

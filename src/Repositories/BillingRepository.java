@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 public class BillingRepository {
 
-    dbconnection dataBaseConnection = new dbconnection();
+    dbconnection dataBaseConnection = dbconnection.getInstance();
     Connection connection = dataBaseConnection.getDatabase_connection();
     public float mealPrice = 0;
     public float totalPrice = 0;

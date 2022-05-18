@@ -12,8 +12,17 @@ public class dbconnection {
     public Connection getDatabase_connection() {
         return conn;
     }
-
-    public dbconnection() {
+    
+    private static dbconnection databaseInstance = new dbconnection();
+    
+    public static dbconnection getInstance()
+    {
+        return databaseInstance;
+    }
+    
+    private dbconnection(){}
+    
+    public void dbconnection() {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost\\ABDO-HUSSEIN\\SQLEXPRESS:1433;databaseName=RestaurantManagementSystem", "sa", "12345");
