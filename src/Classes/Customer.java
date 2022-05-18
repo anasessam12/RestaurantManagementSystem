@@ -7,53 +7,28 @@ import java.util.logging.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+public class Customer {   
+    CustomerRepository CustomerModel = new CustomerRepository();
+    public Customer() {}
 
-enum cust_type {
-    Markting, Loyalty, Reward
-};
-
-public class Customer extends user {
-
-    cust_type type;
-    CustomerRepository CustomerQuery = new CustomerRepository();
+    drowTables drow_table = new drowTables();
     
-    public Customer() {};
-
-    public Customer(cust_type type, int id, String name, String password) {   
-        this.id = id;
-        this.name = name;
-        this.Password = password;  
-        this.type = type;
-    }
-
     
-    public cust_type getType() {
-        return type;
-    }
-    DefaultTableModel drawTable(JTable table){
-         DefaultTableModel tableModle = new DefaultTableModel();
-            table.setModel(tableModle);
-            tableModle.addColumn("Id");
-            tableModle.addColumn("Name");
-            tableModle.addColumn("Type");
-            return tableModle;
-    }
     
-    public void add(user Customer) {
+    public void AddCustomer(CustomerRepository Customer) {
         try {
-            CustomerQuery.addCustomer(Customer);
+            CustomerModel.addCustomer(Customer);
         } catch (SQLException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    @Override
-    public void list(JTable employeeTable) {
-        DefaultTableModel dataTable = drawTable(employeeTable);
+    public void ListCustomers(JTable employeeTable) {
+            DefaultTableModel tableModle = drow_table.drawEmployeeTable(employeeTable);
         try {
-            ResultSet DBresult = CustomerQuery.listCustomers();
+            ResultSet DBresult = CustomerModel.listCustomers();
             while (DBresult.next()) {
-                dataTable.addRow(new Object[]{
+                tableModle.addRow(new Object[]{
                     DBresult.getString("Customer_id"),
                     DBresult.getString("Customer_name"),  
                 });
@@ -63,12 +38,12 @@ public class Customer extends user {
         }  
     }
 
-    public void search(JTable searchTable, user Customer) {
-       DefaultTableModel dataTable = drawTable(searchTable);
+    public void SearchForCustomer(JTable searchTable, CustomerRepository Customer) {
+            DefaultTableModel tableModle = drow_table.drawEmployeeTable(searchTable);
         try {
-            ResultSet DBresult = CustomerQuery.SearchCustomers(Customer);
+            ResultSet DBresult = CustomerModel.SearchForCustomers(Customer);
             while (DBresult.next()) {
-                dataTable.addRow(new Object[]{
+                tableModle.addRow(new Object[]{
                     DBresult.getString("Customer_id"),
                     DBresult.getString("Customer_name"),
                 });
@@ -78,38 +53,31 @@ public class Customer extends user {
         }
     }
 
-    public void delete(user Customer) {
+    public void DeleteACustomer(CustomerRepository Customer) {
         try {
-            CustomerQuery.deleteCustomer(Customer);
+            CustomerModel.deleteCustomer(Customer);
         } catch (SQLException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    @Override
-    public void update(user Customer) {
+    public void UpdateCustomer(CustomerRepository Customer) {
         try {
-            CustomerQuery.updateCustomer(Customer);
+            CustomerModel.updateCustomer(Customer);
         } catch (SQLException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void send(user u, JTextField c_name,  JTextField id_field) {
+    public void SendCustomer(CustomerRepository Customer, JTextField c_name,  JTextField id_field) {
         try {
-
-            Statement st = c.getConn().createStatement();
-            String sql = "select * from Customer where Customer_id='" + u.getId() + "'";
-
-            ResultSet re = st.executeQuery(sql);
-            while (re.next()) {
-                c_name.setText(re.getString("Customer_name"));
-                id_field.setText(re.getString("Customer_id"));
+            ResultSet DBresult = CustomerModel.sendCustomer(Customer);
+            while (DBresult.next()) {
+                c_name.setText(DBresult.getString("Customer_name"));
+                id_field.setText(DBresult.getString("Customer_id"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(adminframe.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    
+    }    
 }

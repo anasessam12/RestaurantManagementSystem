@@ -1,51 +1,55 @@
 package Repositories;
 
-import Classes.dbconnection;
-import Classes.user;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
-
-public class CustomerRepository {
-    dbconnection dataBaseConnection = new dbconnection();
-    
-     public void addCustomer(user Customer) throws SQLException
+public class CustomerRepository extends ModulesData{      
+     public void addCustomer(CustomerRepository customer) throws SQLException
     {
-        Statement statmaent = dataBaseConnection.getConn().createStatement();
-        String sql = "insert into Customer values (" + Customer.getId() + ",'" + Customer.getName() + "' )";
-        statmaent.executeUpdate(sql);
+        Statement statement = connection.createStatement();
+        String sql = "insert into Customer values (" + customer.getId() + ",'" + customer.getName() + "' )";
+        statement.executeUpdate(sql);
         JOptionPane.showMessageDialog(null, "Added Successfully", "Add", JOptionPane.INFORMATION_MESSAGE);
     }
     
     public ResultSet listCustomers() throws SQLException
     {
-        Statement statmaent = dataBaseConnection.getConn().createStatement();
+        Statement statement = connection.createStatement();
         String sql = "select * from Customer";
-        ResultSet result = statmaent.executeQuery(sql);
-        return result;
+        ResultSet resultofquery = statement.executeQuery(sql);
+        return resultofquery;
     }
     
-    public ResultSet SearchCustomers(user Customer) throws SQLException
+    public ResultSet SearchForCustomers(CustomerRepository customer) throws SQLException
     {
-       Statement statmaent = dataBaseConnection.getConn().createStatement();
-       String sql = "select * from Customer  where Customer_id='" + Customer.getId() + "'";
-       ResultSet result = statmaent.executeQuery(sql);
-       return result;
+       Statement statement = connection.createStatement();
+       String sql = "select * from Customer  where Customer_id='" + customer.getId() + "'";
+       ResultSet resultofquery = statement.executeQuery(sql);
+       return resultofquery;
     }
     
-    public void deleteCustomer(user Customer) throws SQLException
+    public void deleteCustomer(CustomerRepository customer) throws SQLException
     {
-        Statement statmaent = dataBaseConnection.getConn().createStatement();
-        String sql = "delete from Customer where Customer_id = " + Customer.getId() + "";
-        statmaent.executeUpdate(sql);
+        Statement statement = connection.createStatement();
+        String sql = "delete from Customer where Customer_id = " + customer.getId() + "";
+        statement.executeUpdate(sql);
+        JOptionPane.showMessageDialog(null, "Employee has been deleted successfully", "success", JOptionPane.INFORMATION_MESSAGE);
     }
     
-    public void updateCustomer(user Customer) throws SQLException
+    public void updateCustomer(CustomerRepository customer) throws SQLException
     {
-        Statement statmaent = dataBaseConnection.getConn().createStatement();
+        Statement statement = connection.createStatement();
         String sql = "update Customer set "+
-                "Customer_name='" + Customer.getName() + 
-                "' where Customer_id='" + Customer.getId() + "' ";
-        statmaent.executeUpdate(sql);
+                "Customer_name='" + customer.getName() + 
+                "' where Customer_id='" + customer.getId() + "' ";
+        statement.executeUpdate(sql);
+    }
+    
+    public ResultSet sendCustomer(CustomerRepository customer) throws SQLException
+    {
+       Statement statement = connection.createStatement();
+       String sql = "select * from Customer  where Customer_id='" + customer.getId() + "'";
+       ResultSet resultofquery = statement.executeQuery(sql);
+       return resultofquery;
     }
 }
