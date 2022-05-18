@@ -20,9 +20,8 @@ public class dbconnection {
         return databaseInstance;
     }
     
-    private dbconnection(){}
     
-    public void dbconnection() {
+    private dbconnection() {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost\\ABDO-HUSSEIN\\SQLEXPRESS:1433;databaseName=RestaurantManagementSystem", "sa", "12345");
